@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 · 资料整理与信息索引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1120 0%, #1a2332 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      color: #e2e8f0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .hero .subhead {
+      font-size: 1.2rem;
+      font-weight: 350;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      color: #94a3b8;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #b9c7da;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* 浅色正文区 */
+    .main-content {
+      padding: 3.5rem 0 5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 480;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+      color: #0f172a;
+      border-left: 5px solid #2563eb;
+      padding-left: 1rem;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+      max-width: 780px;
+      margin-bottom: 3.5rem;
+      background: #ffffff;
+      padding: 2rem 2.2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 卡片网格 — 用途卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 8px 28px -8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      border: 1px solid #edf2f7;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px -12px rgba(37,99,235,0.15);
+      border-color: #d9e2ef;
+    }
+
+    .card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #0b1e33;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    /* 适合人群 + 自然链接段落 */
+    .audience-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+    }
+
+    .audience-item {
+      flex: 1 1 220px;
+    }
+
+    .audience-item h4 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audience-item p {
+      color: #475569;
+      font-size: 0.98rem;
+    }
+
+    .link-sentence {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.4rem;
+      margin: 2.5rem 0 3rem;
+      border: 1px solid #e9eef4;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .link-sentence a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .link-sentence a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+
+    .faq-summary h4 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+      color: #0f172a;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      color: #1e293b;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      color: #475569;
+      margin-left: 0.8rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .footnote {
+      font-size: 0.92rem;
+      color: #64748b;
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero { padding: 3.5rem 1.2rem 3rem; }
+      .intro-text { padding: 1.5rem; }
+      .card-grid { gap: 1.4rem; }
+      .audience-block { padding: 1.5rem; }
+      .link-sentence { padding: 1.5rem; }
+      .faq-summary { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>华体会</h1>
+    <p class="subhead">从资料整理到信息索引，一个轻量化的内容聚合视角</p>
+    <span class="tagline">聚焦 · 结构 · 可检索</span>
+  </section>
+
+  <!-- 浅色正文区 -->
+  <div class="container main-content">
+
+    <!-- 介绍段落（主视觉说明） -->
+    <div class="intro-text">
+      <p>在日常信息流中，我们常常需要一种方式将分散的素材、笔记或参考链接归拢到同一框架下。<strong>华体会</strong>所代表的，正是一种偏向“资料整理与信息索引”的实践思路——它不追求大而全的平台叙事，而是更关注内容如何被组织、分类以及后续如何被再次调用。</p>
+      <p>从早期的碎片收藏到如今的结构化目录，信息管理的颗粒度直接影响检索效率。华体会所提倡的逻辑，是让每一份资料都有明确的位置，让索引本身也成为内容的一部分。</p>
+    </div>
+
+    <!-- 用途卡片（信息卡片式） -->
+    <h2 class="section-title">用途卡片</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="icon">📂</span>
+        <h3>素材归档</h3>
+        <p>将零散的网页、文档、截图按主题归类，建立本地化的索引库，方便后续回顾与二次创作。</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔖</span>
+        <h3>标签式检索</h3>
+        <p>通过自定义标签与层级目录，让信息从“收藏即封存”转变为“可定位、可交叉引用”的活资源。</p>
+      </div>
+      <div class="card">
+        <span class="icon">🧩</span>
+        <h3>轻量知识库</h3>
+        <p>适用于个人笔记站、团队 Wiki 或小型项目文档，以卡片+链接的形式降低维护成本。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2 class="section-title">适合人群</h2>
+    <div class="audience-block">
+      <div class="audience-item">
+        <h4>📌 研究者与写作者</h4>
+        <p>需要长期跟踪某个领域，定期整理文献、案例、数据，保持信息脉络的清晰。</p>
+      </div>
+      <div class="audience-item">
+        <h4>📌 工具爱好者</h4>
+        <p>偏爱用静态站点、Markdown 或简单前端框架搭建个人索引页，追求轻量与可控。</p>
+      </div>
+      <div class="audience-item">
+        <h4>📌 团队知识管理者</h4>
+        <p>小范围协作时，需要一份可共享、不易过时的资料目录，减少重复沟通成本。</p>
+      </div>
+    </div>
+
+    <!-- 自然链接段落（嵌入华体会链接） -->
+    <div class="link-sentence">
+      如果你希望进一步了解这种资料整理方式的具体呈现，可以浏览 <a href="https://hthpeer.com.cn">华体会</a> 的索引结构——它将内容按主题与子项分层排列，方便直接定位到感兴趣的板块。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h4>常见思路摘要</h4>
+      <div class="faq-item">
+        <strong>❓ 如何开始整理手头的资料？</strong>
+        <p>可以先按“来源/用途/时间”任选一个维度建立第一级分类，之后再逐步细化，避免一开始就追求完美结构。</p>
+      </div>
+      <div class="faq-item">
+        <strong>❓ 索引页需要频繁更新吗？</strong>
+        <p>更新频率取决于资料流动的速度。建议设定固定周期（如每周）做一次增量整理，保持索引与资料同步。</p>
+      </div>
+      <div class="faq-item">
+        <strong>❓ 信息卡片方式适合移动端浏览吗？</strong>
+        <p>卡片布局天然适应不同屏幕宽度，只需注意图片和长文本的裁切策略，即可获得良好的移动端体验。</p>
+      </div>
+      <hr>
+      <p style="color:#475569; font-size:0.95rem;">以上内容基于资料整理与信息索引的通用原则，结合华体会的形态特点展开。具体实践可根据自身需求调整。</p>
+    </div>
+
+    <div class="footnote">
+      内容参考 · 索引优先 · 2025
+    </div>
+  </div>
+
+</body>
+</html>
