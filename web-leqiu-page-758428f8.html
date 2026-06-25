@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>乐球直播 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f9fc;
+            color: #1e2b3a;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            flex: 1;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            padding: 2.5rem 1rem 2rem;
+            background: linear-gradient(145deg, #e2f0f5 0%, #f4f9fc 100%);
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0, 40, 50, 0.04);
+        }
+
+        .hero-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            background: #b8d9e6;
+            border-radius: 50%;
+            margin-bottom: 1.2rem;
+            font-size: 2.2rem;
+            color: #1c6a7a;
+            box-shadow: 0 6px 14px rgba(30, 90, 110, 0.10);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #0b3e4a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            max-width: 540px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #2d5e6b;
+        }
+
+        /* ===== 网格卡片通用 ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card-grid.cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 44, 55, 0.04), 0 1px 3px rgba(0, 20, 30, 0.06);
+            transition: box-shadow 0.25s ease, transform 0.2s ease;
+            border: 1px solid #ddeef5;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(20, 100, 120, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 520;
+            color: #07434f;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 span {
+            background: #b6dae6;
+            color: #0b4350;
+            font-size: 1.3rem;
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.3rem;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #2f5060;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e0f0f5;
+            color: #115867;
+            font-size: 0.8rem;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== 人群卡片 ===== */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+
+        .audience-item {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.2rem 1.2rem 1.4rem;
+            border: 1px solid #d1e6ef;
+            box-shadow: 0 2px 6px rgba(0, 40, 50, 0.04);
+        }
+
+        .audience-item h4 {
+            font-size: 1.05rem;
+            color: #094f5e;
+            margin-bottom: 0.25rem;
+        }
+
+        .audience-item p {
+            font-size: 0.92rem;
+            color: #3d5f6c;
+        }
+
+        @media (max-width: 480px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 自然链接段落 ===== */
+        .link-section {
+            background: #e3f0f5;
+            border-radius: 32px;
+            padding: 2rem 2rem 2.2rem;
+            margin: 2.8rem 0 2rem;
+            border: 1px solid #c5dee9;
+        }
+
+        .link-section p {
+            font-size: 1.02rem;
+            color: #1e4d5a;
+            margin-bottom: 0.8rem;
+        }
+
+        .link-section a {
+            color: #0c657a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #90c2d4;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-section a:hover {
+            color: #043945;
+            border-bottom-color: #0c657a;
+        }
+
+        .link-section .muted {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #306a78;
+            opacity: 0.8;
+        }
+
+        /* ===== FAQ 摘要 ===== */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            margin: 2rem 0 1rem;
+            border: 1px solid #daecf2;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #c5dbe5;
+            padding-bottom: 0.7rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #0b4857;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #5e93a3;
+        }
+
+        .faq-mini .answer {
+            padding: 0.4rem 0.2rem 0.2rem;
+            color: #2c5b68;
+            font-size: 0.95rem;
+        }
+
+        /* ===== footer ===== */
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.88rem;
+            color: #517e8b;
+            border-top: 1px solid #d0e3eb;
+            padding-top: 1.8rem;
+        }
+
+        .footer-note span {
+            opacity: 0.7;
+        }
+
+        /* 点缀色 */
+        .accent-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #3e9bb0;
+            border-radius: 50%;
+            margin: 0 4px;
+        }
+
+        .accent-line {
+            height: 4px;
+            width: 50px;
+            background: #93c6d8;
+            border-radius: 4px;
+            margin: 0.4rem 0 1rem;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-icon">⚽</div>
+        <h1>乐球直播 · 观看从稳定开始</h1>
+        <p>一个以简洁和可靠为出发点的页面，帮助你快速了解服务方向与使用场景，找到适合自己的节奏。</p>
+    </section>
+
+    <!-- 用途卡片 —— 信息卡片式，主视觉 + 用途 -->
+    <section>
+        <h2 style="font-weight:450; font-size:1.6rem; color:#07424d; margin-bottom:0.2rem;">日常使用场景</h2>
+        <div style="display:flex; gap:0.6rem; margin-bottom:1.2rem;">
+            <span class="accent-line"></span>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <h3><span>📡</span> 稳定入口</h3>
+                <p>页面本身即是一个轻量的起始点。无论你是在寻找直播内容还是希望快速进入状态，这里提供的链接与说明都经过整理，减少反复跳转的负担。</p>
+                <div class="tag">结构清晰</div>
+            </div>
+            <div class="card">
+                <h3><span>🧭</span> 页面说明</h3>
+                <p>每个模块都围绕“乐球直播”的核心体验展开。从功能卡片到受众提示，我们希望你先理解再使用，而不是盲目点击。</p>
+                <div class="tag">信息透明</div>
+            </div>
+            <div class="card">
+                <h3><span>📱</span> 移动优先</h3>
+                <p>网格卡片与自适应布局让手机屏幕也能获得舒适的浏览体验。无需缩放，轻触即可展开细节。</p>
+                <div class="tag">响应式</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 适合人群 -->
+    <section style="margin-top: 1.8rem;">
+        <h2 style="font-weight:450; font-size:1.4rem; color:#07424d;">适合这样的你</h2>
+        <div class="audience-grid">
+            <div class="audience-item">
+                <h4>⚡ 偶尔观看的观众</h4>
+                <p>不想被复杂菜单打扰，只想快速找到直播入口，看一会就离开。</p>
+            </div>
+            <div class="audience-item">
+                <h4>🧩 多设备使用者</h4>
+                <p>在手机、平板和电脑之间切换，希望界面在不同屏幕上都能保持一致。</p>
+            </div>
+            <div class="audience-item">
+                <h4>🔍 初次接触的新人</h4>
+                <p>还不熟悉网站结构，需要一份温和的指引，而不是铺天盖地的弹窗。</p>
+            </div>
+            <div class="audience-item">
+                <h4>🌿 注重效率的老用户</h4>
+                <p>直接获取关键信息，跳过无关干扰，把时间留给真正想看的直播。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自然链接段落 —— 嵌入“乐球直播”链接 -->
+    <section class="link-section">
+        <p>
+            如果你已经准备好，可以直接前往 <a href="https://web-leqiu.com">乐球直播</a>。
+            这个页面更偏向于说明与引导，但主站点本身的设计同样遵循克制与清晰的逻辑。
+        </p>
+        <p>
+            很多人第一次使用时就会注意到，<a href="https://web-leqiu.com">乐球直播</a> 的界面没有多余装饰，
+            内容排布比较直观，这一点和我们在这里展示的卡片思路是一致的。
+        </p>
+        <span class="muted">—— 我们倾向于把入口变得自然，而不是用按钮催促你。</span>
+    </section>
+
+    <!-- FAQ 摘要（提示性） -->
+    <section class="faq-mini">
+        <h3 style="font-weight:500; color:#07424d; margin-bottom:0.8rem;">常见疑问 · 摘要</h3>
+        <details>
+            <summary>乐球直播主要提供什么？</summary>
+            <div class="answer">一个以直播内容为核心的访问入口，强调稳定加载与干净的浏览环境。你可以通过上方链接直接体验。</div>
+        </details>
+        <details>
+            <summary>页面上的卡片和分类有帮助吗？</summary>
+            <div class="answer">是的，它们把使用场景、适合人群和功能特点分开陈列，方便你快速评估是否匹配自己的需求。</div>
+        </details>
+        <details>
+            <summary>移动端体验如何？</summary>
+            <div class="answer">本页及主站均采用响应式设计，卡片自动适配屏幕宽度，触摸友好，无需双指缩放。</div>
+        </details>
+        <details>
+            <summary>还有其他引导吗？</summary>
+            <div class="answer">本页本身就是一份轻量的引导。更具体的功能说明建议直接访问主站，以实际页面为准。</div>
+        </details>
+    </section>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>乐球直播 · 信息卡片式介绍页</span>
+        <span style="margin:0 0.6rem;">·</span>
+        <span>稳定入口 · 自然叙述</span>
+    </div>
+</main>
+</body>
+</html>
